@@ -1,0 +1,24 @@
+{
+  "name": "feedphotos/api",
+  "scripts": {
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "require": {
+    "vlucas/phpdotenv": "^2.4",
+    "phalcon/incubator": "^2.0",
+    "cakephp/utility": "^3.3",
+    "ext-phalcon": "^2.0"
+  },
+  "require-dev": {
+    "phalcon/devtools": "^2.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Angel S. Moreno",
+      "email": "angelxmoreno@gmail.com"
+    }
+  ]
+}
