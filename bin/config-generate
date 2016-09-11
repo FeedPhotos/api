@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT_PATH', dirname(__DIR__) . DS);
+define('WEBROOT_PATH', ROOT_PATH . 'public' . DS);
+define('CONFIG_PATH', ROOT_PATH . 'config' . DS);
+define('MODULES_PATH', ROOT_PATH . 'modules' . DS);
+define('CACHE_PATH', ROOT_PATH . 'cache' . DS);
+define('VIEWS_PATH', ROOT_PATH . 'views' . DS);
+define('VENDOR_PATH', ROOT_PATH . 'vendor' . DS);
+define('LOGS_PATH', ROOT_PATH . 'logs' . DS);
+define('CONFIG_FILE', CONFIG_PATH . 'config.php');
+define('CONFIG_TPL', CONFIG_PATH . 'config.tpl.php');
+
+try {
+    require VENDOR_PATH . 'autoload.php';
+    $config_array = require_once CONFIG_TPL;
+    $config_tpl = var_export($config_array, true);
+    $full_tpl = "<?php \nreturn new Phalcon\Config({$config_tpl});";
+    file_put_contents(CONFIG_FILE, $full_tpl);
+    echo CONFIG_FILE . ' was created' . PHP_EOL;
+} catch (\Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+    echo $e->getTraceAsString();
+}
