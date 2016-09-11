@@ -13,7 +13,7 @@ define('CONFIG_FILE', CONFIG_PATH . 'config.php');
 define('CONFIG_TPL', CONFIG_PATH . 'config.tpl.php');
 
 try {
-    require VENDOR_PATH . 'autoload.php';
+    require CONFIG_PATH . 'loader.php';
     $config_array = require_once CONFIG_TPL;
     $config_tpl = var_export($config_array, true);
     $full_tpl = "<?php \nreturn new Phalcon\Config({$config_tpl});";
