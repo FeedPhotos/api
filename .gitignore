@@ -1,4 +1,3 @@
 vendor/
-composer.lock## bin dir
 bin/*
 !bin/config-generate
